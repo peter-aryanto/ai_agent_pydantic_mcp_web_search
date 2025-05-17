@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Deactivate any conda environment if active
+if [[ ! -z "${CONDA_DEFAULT_ENV}" ]]; then
+    conda deactivate
+fi
+
+# Deactivate virtual environment if active
+if [[ ! -z "${VIRTUAL_ENV}" ]]; then
+    deactivate
+fi
+
+# Remove the venv directory if it exists
+if [ -d "venv" ]; then
+    echo "Removing virtual environment..."
+    rm -rf venv
+fi
+
+echo "Environment has been reset!"
